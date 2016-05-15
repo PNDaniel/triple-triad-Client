@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="triple-triad">
 
 <head>
     <title>Triple Triad</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <base href="/">
+
+    <link href="styles/normalize.min.css" type="text/css" rel="stylesheet">
+    <link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="styles/styles.css" type="text/css" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <h1>Hello world.</h1>
+    <div ng-view></div>
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-cookies.min.js"></script>
+
+    <script src="app/app.js"></script>
+
+    <script src="app/controllers/HWCtrl.js"></script>
+
+    <script src="app/services/testServices.js"></script>
 
 </body>
 
