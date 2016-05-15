@@ -1,4 +1,4 @@
-# Triple Triad CLIENT repository
+# Triple Triad - Client
 
 ## [Live version](http://triple-triad.ivolimasilva.xyz/)
 
