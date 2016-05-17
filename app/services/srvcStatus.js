@@ -2,13 +2,13 @@
 
     'use strict';
 
-    // Created the services related to users
-    var testServices = function ($q, $http) {
+    // Created the status services (for test and example purposes) 
+    var srvcStatus = function ($q, $http) {
 
         var deferred = $q.defer();
 
-        this.test = function () {
-            return $http.get('/api/test')
+        this.getStatus = function () {
+            return $http.get('/api/status')
                 .success(function (res) {
                     deferred.resolve(res);
                 })
@@ -21,9 +21,9 @@
     };
 
     // Injecting modules used for better minifing later on
-    testServices.$inject = ['$q', '$http'];
+    srvcStatus.$inject = ['$q', '$http'];
 
     // Enabling the service in the app
-    angular.module('triple-triad').service('testServices', testServices);
+    angular.module('triple-triad').service('srvcStatus', srvcStatus);
 
 } ());
