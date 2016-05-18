@@ -3,7 +3,32 @@
 <!-- Including the home css -->
 <link href="../../styles/home.css" type="text/css" rel="stylesheet">
 
+<div class="container-fluid text-center">
+    <h1>Triple Triad</h1>
+
+    <div class="center-block text-left tt-loginform">
+        <form role="form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+
+            <button type="submit" class="btn btn-default btn-block">Login</button>
+        </form>
+    </div>
+    
+    <div style="padding-top: 10px; padding-bottom: 10px;">or</div>
+    
+    <div class="center-block text-left tt-loginform">
+        <button class="btn btn-facebook btn-block">Login with Facebook</button>
+        <button class="btn btn-twitter btn-block">Login with Twitter</button>
+    </div>
+</div>
+
 <div class="text-center">
-    <p>Home page.</p>
     <code>{{ msg }}</code>
 </div>
