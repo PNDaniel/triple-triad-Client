@@ -15,10 +15,6 @@
                 controller: 'CtrlHome',
                 templateUrl: 'app/views/home.html'
             })
-            .when('/auth', {
-                controller: 'CtrlAuth',
-                templateUrl: 'app/views/auth.html'
-            })
             .when('/lobby', {
                 controller: 'CtrlLobby',
                 templateUrl: 'app/views/lobby.html'
