@@ -1,1 +1,12 @@
-# /nbproject/private/
+### Visual Studio Code ###
+.settings/
+.vscode/
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+.nb-gradle/
