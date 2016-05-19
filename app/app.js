@@ -3,10 +3,10 @@
     'use strict';
 
     // Creation of the app, named 'triple-triad'
-    var app = angular.module('triple-triad', ['ngRoute', 'ngCookies']);
+    var app = angular.module('triple-triad', ['ngRoute', 'ngCookies', 'angular.css.injector']);
 
     // Configuration of routes
-    app.config(function ($routeProvider, $locationProvider) {
+    app.config(function ($routeProvider, $locationProvider, cssInjectorProvider) {
 
         // Definition of the view routes
 
@@ -33,6 +33,9 @@
 
         // Enabling HTML5 mode so that the URL doesn't show up with hashtags
         $locationProvider.html5Mode(true);
+
+        // To remove all added CSS files when the page change
+        cssInjectorProvider.setSinglePageMode(true);
 
     });
 

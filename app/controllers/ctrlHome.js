@@ -3,23 +3,26 @@
     'use strict';
 
     // Created the controller to the home view
-    var CtrlHome = function ($scope, srvcStatus) {
+    var CtrlHome = function ($scope, srvcStatus, cssInjector) {
 
         // Message log to check if home view was loaded (delete for deploy)
         console.log('Home controller loaded.');
+
+        // Inject CSS file dynamically
+        cssInjector.add('styles/home.css');
 
         srvcStatus.getStatus()
             .then(function (res) {
                 $scope.msg = res.data;
             })
             .catch(function (err) {
-                $scope.msg = err;
+                $scope.msg = 'Server doesn\'t reply.';
             });
 
     };
 
     // Injecting modules used for better minifing later on
-    CtrlHome.$inject = ['$scope', 'srvcStatus'];
+    CtrlHome.$inject = ['$scope', 'srvcStatus', 'cssInjector'];
 
     // Enabling the controller in the app
     angular.module('triple-triad').controller('CtrlHome', CtrlHome);
