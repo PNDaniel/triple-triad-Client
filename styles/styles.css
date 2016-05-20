@@ -1,6 +1,6 @@
 /* Global styles applied in the entire project */
 
-.tt-loginform, .tt-createform{
+.tt-menu{
     max-width: 500px;
 }
 
@@ -8,9 +8,10 @@
     display: none;
 }
 
-.tt-formTitle{
+.tt-menuTitle{
     font-weight: bold;
     font-size: 16px;
+    padding: 20px;
 }
 
 /*Facebook Login Button*/
