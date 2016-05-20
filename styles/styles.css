@@ -1,7 +1,16 @@
 /* Global styles applied in the entire project */
 
-.tt-loginform{
+.tt-loginform, .tt-createform{
     max-width: 500px;
+}
+
+.tt-createform{
+    display: none;
+}
+
+.tt-formTitle{
+    font-weight: bold;
+    font-size: 16px;
 }
 
 /*Facebook Login Button*/

@@ -3,7 +3,11 @@
 <div class="container-fluid text-center">
     <h1>Triple Triad</h1>
 
-    <div class="center-block text-left tt-loginform">
+    <div class="text-left tt-loginform center-block">  
+        <div class="text-center tt-formTitle">
+            Login
+        </div>
+        
         <form role="form">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -14,16 +18,60 @@
                 <input type="password" class="form-control" id="password">
             </div>
 
-            <button type="submit" class="btn btn-default btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button class="btn btn-facebook btn-block">Login with Facebook</button>
+            <button class="btn btn-twitter btn-block">Login with Twitter</button>
+            
+            <div class="text-center" style="padding: 10px 0px;">or</div>
+            
+            <button id="tt-btn-create" class="btn btn-default btn-block">Create an Account</button>
+        </form>
+    </div>
+
+    <div class="text-left tt-createform center-block">
+        <div class="text-center tt-formTitle">
+            Create Account
+        </div>
+        
+        <form role="form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password (Confirm):</label>
+                <input type="password" class="form-control" id="passwordconfirm">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            
+            <div class="text-center" style="padding: 10px 0px;">or</div>
+            
+            <button id="tt-btn-login" class="btn btn-default btn-block">Login</button>
         </form>
     </div>
     
-    <div style="padding-top: 10px; padding-bottom: 10px;">or</div>
-    
-    <div class="center-block text-left tt-loginform">
-        <button class="btn btn-facebook btn-block">Login with Facebook</button>
-        <button class="btn btn-twitter btn-block">Login with Twitter</button>
-    </div>
+    <!-- Move me to a proper file later -->
+    <script>
+        function switchForm(form1, form2){
+            $(form2).slideToggle(400, function(){
+                $(form1).slideToggle(400);
+            });            
+        } 
+       
+        $("#tt-btn-login").click(function(){
+            switchForm(".tt-loginform", ".tt-createform")
+        });
+
+        $("#tt-btn-create").click(function(){
+            switchForm(".tt-createform", ".tt-loginform")
+        });
+    </script>
 </div>
 
 <div class="text-center">
