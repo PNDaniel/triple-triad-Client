@@ -1,0 +1,48 @@
+<!-- Code of friends goes here -->
+<div class="tt-friends">
+    <div class="tt-friends-menu">
+        Friends
+    </div>
+    
+    <div class="tt-friends-notification">
+        
+    </div>
+    
+    <div class="tt-friends-list">
+        <div class="tt-friends-list-header">
+            Online
+            <button class="btn btn-default btn-xs pull-right">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add
+            </button>
+        </div>
+        <div class="tt-friends-list-item">
+            Antonio Augusto Sousa
+        </div>
+        <div class="tt-friends-list-item">
+            Ana Paula Rocha
+        </div>
+    </div>
+    
+    <script>
+        var notificationTimeout;
+        
+        function notification(message){            
+            $(".tt-friends-notification").html(
+                "<span class='glyphicon glyphicon-comment' aria-hidden='true'></span>"
+                + " " + message
+            );
+    
+            $(".tt-friends-notification").slideDown(250);
+            
+            clearTimeout(notificationTimeout);
+            notificationTimeout = setTimeout(function(){
+                $(".tt-friends-notification").slideUp(250);
+            }, 5000);
+        }
+        
+        $(".tt-friends-menu").click(function(){
+            $(".tt-friends-list").toggle();
+        });
+    </script>
+</div>
