@@ -2,11 +2,11 @@
 
     'use strict';
 
-    // Created the controller to the navbar component
+    // Created the controller to the friends component
     var CtrlFriends = function (cssInjector) {
 
-        // Message log to check if navbar component was loaded (delete for deploy)
-        console.log('Navbar component controller loaded.');
+        // Message log to check if friends component was loaded
+        console.log('Friends component controller loaded.');
 
         // Inject CSS file dynamically
         cssInjector.add('styles/friends.css');

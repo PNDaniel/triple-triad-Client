@@ -1,14 +1,13 @@
 <!-- Code of the home page goes here -->
 
-<!-- Example of how easy it is to inject the same modular navbar in different pages -->
-<navbar></navbar>
+<h1 class="text-center">Triple Triad</h1>
 
 <div class="container-fluid text-center">
-    <div class="text-left tt-loginform tt-menu center-block">  
+    <div class="text-left tt-loginform tt-menu center-block">
         <div class="text-center tt-menuTitle">
             Login
         </div>
-        
+
         <form role="form">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -20,11 +19,11 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">Login</button>
-            <button class="btn btn-facebook btn-block">Login with Facebook</button>
+            <button ng-click="login_fb()" class="btn btn-facebook btn-block">Login with Facebook</button>
             <button class="btn btn-twitter btn-block">Login with Twitter</button>
-            
+
             <div class="text-center" style="padding: 10px 0px;">or</div>
-            
+
             <button id="tt-btn-create" class="btn btn-default btn-block">Create an Account</button>
         </form>
     </div>
@@ -33,7 +32,7 @@
         <div class="text-center tt-menuTitle">
             Create Account
         </div>
-        
+
         <form role="form">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -50,13 +49,13 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-            
+
             <div class="text-center" style="padding: 10px 0px;">or</div>
-            
+
             <button id="tt-btn-login" class="btn btn-default btn-block">Login</button>
         </form>
     </div>
-    
+
     <!-- Move me to a proper file later -->
     <script>
         function switchForm(form1, form2){

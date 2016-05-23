@@ -3,7 +3,7 @@
     'use strict';
 
     // Created the controller to the home view
-    var CtrlHome = function ($scope, srvcStatus, cssInjector) {
+    var CtrlHome = function ($scope, srvcStatus, srvcAuth, cssInjector) {
 
         // Message log to check if home view was loaded (delete for deploy)
         console.log('Home controller loaded.');
@@ -19,10 +19,20 @@
                 $scope.msg = 'Server doesn\'t reply.';
             });
 
+        $scope.login_fb = function () {
+            srvcAuth.login_fb()
+                .then(function (res) {
+                    console.log(res);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        };
+
     };
 
     // Injecting modules used for better minifing later on
-    CtrlHome.$inject = ['$scope', 'srvcStatus', 'cssInjector'];
+    CtrlHome.$inject = ['$scope', 'srvcStatus', 'srvcAuth', 'cssInjector'];
 
     // Enabling the controller in the app
     angular.module('triple-triad').controller('CtrlHome', CtrlHome);

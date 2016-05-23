@@ -6,10 +6,9 @@
     var app = angular.module('triple-triad', ['ngRoute', 'ngCookies', 'angular.css.injector']);
 
     // Configuration of routes
-    app.config(function ($routeProvider, $locationProvider, cssInjectorProvider) {
+    app.config(function ($routeProvider, $locationProvider, $httpProvider, cssInjectorProvider) {
 
         // Definition of the view routes
-
         $routeProvider
             .when('/', {
                 controller: 'CtrlHome',
@@ -30,6 +29,10 @@
             .otherwise({
                 redirectTo: '/404'
             });
+
+        // Enabling Cross Origin Requests Sharing
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         // Enabling HTML5 mode so that the URL doesn't show up with hashtags
         $locationProvider.html5Mode(true);
