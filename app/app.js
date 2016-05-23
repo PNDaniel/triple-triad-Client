@@ -9,6 +9,7 @@
     app.config(function ($routeProvider, $locationProvider, $httpProvider, cssInjectorProvider) {
 
         // Definition of the view routes
+        // resolve: ...
         $routeProvider
             .when('/', {
                 controller: 'CtrlHome',
