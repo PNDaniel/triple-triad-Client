@@ -23,6 +23,10 @@
                 controller: 'CtrlGame',
                 templateUrl: 'app/views/game.html'
             })
+            .when('/403', {
+                controller: 'Ctrl403',
+                templateUrl: 'app/views/403.html'
+            })
             .when('/404', {
                 controller: 'Ctrl404',
                 templateUrl: 'app/views/404.html'
