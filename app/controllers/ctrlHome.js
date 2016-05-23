@@ -19,15 +19,7 @@
                 $scope.msg = 'Server doesn\'t reply.';
             });
 
-        $scope.login_fb = function () {
-            srvcAuth.login_fb()
-                .then(function (res) {
-                    console.log(res);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        };
+        srvcAuth.validate();
 
     };
 
