@@ -19,6 +19,7 @@
                 $scope.msg = 'Server doesn\'t reply.';
             });
 
+        // Verify if session (cookie) exists and is valid.
         srvcAuth.validate();
 
     };

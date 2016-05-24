@@ -19,7 +19,7 @@
                 controller: 'CtrlLobby',
                 templateUrl: 'app/views/lobby.html'
             })
-            .when('/game', {
+            .when('/game/:id', {
                 controller: 'CtrlGame',
                 templateUrl: 'app/views/game.html'
             })

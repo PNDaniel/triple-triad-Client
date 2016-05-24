@@ -15,7 +15,10 @@
                 .error(function (err) {
                     deferred.reject(err);
                 });
+        };
 
+        this.clearHash = function () {
+            window.location.hash = '';
         };
 
     };
