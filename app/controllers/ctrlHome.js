@@ -19,6 +19,20 @@
                 $scope.msg = 'Server doesn\'t reply.';
             });
 
+        $scope.login = function (user) {
+            srvcAuth.login(user);
+        };
+
+        $scope.register = function (user) {
+            srvcAuth.register(user)
+                .then(function () {
+                    srvcAuth.login(user);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+        };
+
         // Verify if session (cookie) exists and is valid.
         srvcAuth.validate();
 
