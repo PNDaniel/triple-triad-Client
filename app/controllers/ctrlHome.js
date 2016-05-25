@@ -36,6 +36,13 @@
         // Verify if session (cookie) exists and is valid.
         srvcAuth.validate();
 
+
+        // Interface Handlers
+        $scope.switchForm = function(form1, form2){
+            $(form2).slideToggle(400, function(){
+                $(form1).slideToggle(400);
+            });            
+        } 
     };
 
     // Injecting modules used for better minifing later on

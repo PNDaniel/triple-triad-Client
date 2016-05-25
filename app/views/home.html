@@ -24,7 +24,7 @@
 
             <div class="text-center" style="padding: 10px 0px;">or</div>
 
-            <button id="tt-btn-create" class="btn btn-default btn-block">Create an Account</button>
+            <button ng-click='switchForm(".tt-createform", ".tt-loginform")' class="btn btn-default btn-block">Create an Account</button>
         </form>
     </div>
 
@@ -56,26 +56,9 @@
 
             <div class="text-center" style="padding: 10px 0px;">or</div>
 
-            <button id="tt-btn-login" class="btn btn-default btn-block">Login</button>
+            <button ng-click='switchForm(".tt-loginform", ".tt-createform")' class="btn btn-default btn-block">Login</button>
         </form>
     </div>
-
-    <!-- Move me to a proper file later -->
-    <script>
-        function switchForm(form1, form2){
-            $(form2).slideToggle(400, function(){
-                $(form1).slideToggle(400);
-            });            
-        } 
-       
-        $("#tt-btn-login").click(function(){
-            switchForm(".tt-loginform", ".tt-createform")
-        });
-
-        $("#tt-btn-create").click(function(){
-            switchForm(".tt-createform", ".tt-loginform")
-        });
-    </script>
 </div>
 
 <div class="text-center">

@@ -1,5 +1,9 @@
 /* Global styles applied in the entire project */
 
+.tt-username{
+    color: blue;
+}
+
 .tt-menu{
     max-width: 500px;
 }

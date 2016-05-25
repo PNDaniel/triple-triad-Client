@@ -1,6 +1,6 @@
-/* Styles applied only in the friends component */
+/* Styles applied only in the players component */
 
-.tt-friends{    
+.tt-players{    
     position: fixed;
     bottom: 0px;
     right: 25px;
@@ -17,7 +17,7 @@
     overflow: hidden;
 }
 
-.tt-friends-menu{
+.tt-players-menu{
     padding: 10px;
     background: transparent;
     
@@ -25,37 +25,29 @@
     cursor: pointer;
 }
 
-.tt-friends-menu:hover{
+.tt-players-menu:hover{
     background: #DDD;
 }
 
-.tt-friends-menu:active{
+.tt-players-menu:active{
     box-shadow: 0px 0px 20px #BBB inset;
 }
 
-.tt-friends-list{
+.tt-players-list{
     background: white;
     display: none;
 }
 
-.tt-friends-list-item{
+.tt-players-list-item{
     padding: 10px;
+    cursor: pointer;
 }
 
-.tt-friends-list-item:hover{
-    background: #EEE;
+.tt-players-list-item:hover{
+    background: #F8F8F8;
 }
 
-.tt-friends-list-header{
-    color: #2795e9;
-    padding: 10px;
-}
-
-.tt-friends-list-header .glyphicon{
-    color: green;
-}
-
-.tt-friends-notification{
+.tt-players-notification{
     padding: 10px;
     display: none;
     background: white;

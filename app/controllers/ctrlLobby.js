@@ -19,7 +19,23 @@
         $scope.logout = function () {
             srvcAuth.logout();
         };
-
+        
+        // Interface Handlers
+        var notificationTimeout;
+        
+        $scope.notification = function(message){            
+            $(".tt-players-notification").html(
+                "<span class='glyphicon glyphicon-comment' aria-hidden='true'></span>"
+                + " " + message
+            );
+    
+            $(".tt-players-notification").slideDown(250);
+            
+            clearTimeout(notificationTimeout);
+            notificationTimeout = setTimeout(function(){
+                $(".tt-players-notification").slideUp(250);
+            }, 5000);
+        }
     };
 
     // Injecting modules used for better minifing later on
