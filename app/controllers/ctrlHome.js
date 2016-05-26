@@ -14,6 +14,7 @@
         srvcStatus.getStatus()
             .then(function (res) {
                 $scope.msg = res.data;
+                $scope.port = res.data.port;
             })
             .catch(function (err) {
                 $scope.msg = 'Server doesn\'t reply.';
