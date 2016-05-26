@@ -48,7 +48,6 @@
     });
 
     // Code run everytime someones pushes F5 or changes the URL in the browser
-    // TODO HERE: Verify is user has permissions to access the page that he wants
     app.run(function () {
 
     });

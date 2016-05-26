@@ -1,20 +1,19 @@
 <!-- Code of players goes here -->
 <div class="tt-players">
     <div ng-click="toggleList()" class="tt-players-menu">
-        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-        Players
+        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Players ({{ players.length }})
     </div>
-    
+
     <div class="tt-players-notification">
-        
+
     </div>
-    
+
     <div class="tt-players-list">
-        <div class="tt-players-list-item">
-            Antonio Augusto Sousa
+        <div class="tt-players-list-item" ng-if="players.length == 0">
+            All players are offline
         </div>
-        <div class="tt-players-list-item">
-            Ana Paula Rocha
+        <div class="tt-players-list-item" ng-repeat="player in players">
+            {{ player.name }}
         </div>
     </div>
 </div>
