@@ -10,7 +10,6 @@
 
         // Inject CSS file dynamically
         cssInjector.add('styles/game.css');
-
     };
 
     // Injecting modules used for better minifing later on
