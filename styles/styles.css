@@ -1,36 +1,31 @@
 /* Global styles applied in the entire project */
-
-.tt-username{
+.tt-username {
     color: blue;
 }
-
-.tt-menu{
+.tt-menu {
     max-width: 500px;
 }
-
-.tt-createform{
+.tt-createform {
     display: none;
 }
-
-.tt-menuTitle{
+.tt-menuTitle {
     font-weight: bold;
     font-size: 16px;
     padding: 20px;
 }
-
 /*Facebook Login Button*/
 .btn-facebook {
-  background-color: #3b5998;
-  border-color: #3b5998;
-  color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
+    color: white;
 }
 .btn-facebook:hover,
 .btn-facebook:focus,
 .btn-facebook:active,
 .btn-facebook.active {
-  background-color: #344e86;
-  border-color: #2d4373;
-  color: white;
+    background-color: #344e86;
+    border-color: #2d4373;
+    color: white;
 }
 .btn-facebook.disabled:hover,
 .btn-facebook.disabled:focus,
@@ -44,24 +39,23 @@ fieldset[disabled] .btn-facebook:hover,
 fieldset[disabled] .btn-facebook:focus,
 fieldset[disabled] .btn-facebook:active,
 fieldset[disabled] .btn-facebook.active {
-  background-color: #3b5998;
-  border-color: #3b5998;
-  color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
+    color: white;
 }
-
 /*Twitter Login Button*/
 .btn-twitter {
-  background-color: #55acee;
-  border-color: #55acee;
-  color: white;
+    background-color: #55acee;
+    border-color: #55acee;
+    color: white;
 }
 .btn-twitter:hover,
 .btn-twitter:focus,
 .btn-twitter:active,
 .btn-twitter.active {
-  background-color: #3ea1ec;
-  border-color: #2795e9;
-  color: white;
+    background-color: #3ea1ec;
+    border-color: #2795e9;
+    color: white;
 }
 .btn-twitter.disabled:hover,
 .btn-twitter.disabled:focus,
@@ -75,8 +69,7 @@ fieldset[disabled] .btn-twitter:hover,
 fieldset[disabled] .btn-twitter:focus,
 fieldset[disabled] .btn-twitter:active,
 fieldset[disabled] .btn-twitter.active {
-  background-color: #55acee;
-  border-color: #55acee;
-  color: white;
+    background-color: #55acee;
+    border-color: #55acee;
+    color: white;
 }
-

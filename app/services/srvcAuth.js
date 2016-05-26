@@ -49,6 +49,16 @@
                 });
         };
 
+        this.whoami = function () {
+            return $http.get('/api/user')
+                .success(function (user) {
+                    deferred.resolve(user);
+                })
+                .error(function (err) {
+                    deferred.reject(err);
+                });
+        };
+
     };
 
     // Injecting modules used for better minifing later on
