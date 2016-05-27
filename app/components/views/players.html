@@ -1,20 +1,37 @@
 <!-- Code of players goes here -->
 <div class="tt-players">
     <div ng-click="toggleList()" class="tt-players-menu">
-        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-        Players
+        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Players ({{ players.length }})
     </div>
-    
-    <div class="tt-players-notification">
-        
-    </div>
-    
+
+    <div class="tt-players-notification"></div>
+
     <div class="tt-players-list">
-        <div class="tt-players-list-item">
-            Antonio Augusto Sousa
+        <div class="tt-players-list-item" ng-if="players.length == 0">
+            All players are offline
         </div>
-        <div class="tt-players-list-item">
-            Ana Paula Rocha
+        <div class="tt-players-list-item" ng-repeat="player in players">
+            <a ng-click="invite(player)">{{ player.name }}</a>
         </div>
     </div>
 </div>
+
+<!-- Invitational modal -->
+<div class="modal fade in" tabindex="-1" role="dialog" ng-if="invite.show">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ invite.title }}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{ invite.body }}</p>
+            </div>
+            <div class="modal-footer" ng-if="invite.buttons.length > 0">
+                <button type="button" class="{{ button.classes }}" ng-repeat="button in invite.buttons" ng-click="this[button.action]()">{{ button.label }}</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
