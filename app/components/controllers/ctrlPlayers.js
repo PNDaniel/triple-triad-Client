@@ -25,6 +25,7 @@
         // Get socket object to listen to specific channels
         var socket = srvcSocket.socket();
 
+        // Changing status to online
         srvcSocket.status('online');
 
         // Get online users
