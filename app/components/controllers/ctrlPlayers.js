@@ -74,17 +74,29 @@
             $scope.$apply();
         });
 
+        // Interface Handlers
+        var notificationTimeout;
+
         // Invite a player to play
         $scope.invite = function (player) {
-            $scope.inviteForm = {
-                show: true,
-                title: 'Inviting ' + player.name,
-                body: 'Waiting for answer...',
-                buttons: []
-            };
-            socket.emit('invite', {
-                id: player._id
-            });
+            if (player.status == 'online') {
+                $scope.inviteForm = {
+                    show: true,
+                    title: 'Inviting ' + player.name,
+                    body: 'Waiting for answer...',
+                    buttons: []
+                };
+                socket.emit('invite', {
+                    id: player._id
+                });
+            } else {
+                $(".tt-players-notification").html("<span class='glyphicon glyphicon-user' aria-hidden='true'></span> " + player.name + " is not available.");
+                $(".tt-players-notification").slideDown(250);
+                clearTimeout(notificationTimeout);
+                notificationTimeout = setTimeout(function () {
+                    $(".tt-players-notification").slideUp(250);
+                }, 5000);
+            }
         };
 
         // Accept invite from a player
