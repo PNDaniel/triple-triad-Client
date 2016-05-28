@@ -39,12 +39,12 @@
             $scope.$apply();
         });
 
-        $scope.invite = {};
-        $scope.invite.show = false;
+        $scope.inviteForm = {};
+        $scope.inviteForm.show = false;
 
         // Receive an invite
         socket.on('invite', function (data) {
-            $scope.invite = {
+            $scope.inviteForm = {
                 show: true,
                 user: data.user,
                 title: 'Invite from ' + data.user.name,
@@ -64,7 +64,7 @@
 
         // Decline an invite
         socket.on('decline', function (data) {
-            $scope.invite = {
+            $scope.inviteForm = {
                 show: false,
                 user: null,
                 title: '',
@@ -76,7 +76,7 @@
 
         // Invite a player to play
         $scope.invite = function (player) {
-            $scope.invite = {
+            $scope.inviteForm = {
                 show: true,
                 title: 'Inviting ' + player.name,
                 body: 'Waiting for answer...',
@@ -90,14 +90,14 @@
         // Accept invite from a player
         $scope.accept = function () {
             socket.emit('accept', {
-                id: $scope.invite.user._id
+                id: $scope.inviteForm.user._id
             });
         };
 
         // Decline invite from a player
         $scope.decline = function () {
             socket.emit('decline', {
-                id: $scope.invite.user._id
+                id: $scope.inviteForm.user._id
             });
         };
 

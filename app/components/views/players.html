@@ -17,17 +17,17 @@
 </div>
 
 <!-- Invitational modal -->
-<div class="modal fade in" tabindex="-1" role="dialog" ng-if="invite.show">
+<div class="modal fade in" tabindex="-1" role="dialog" ng-if="inviteForm.show">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">{{ invite.title }}</h4>
+                <h4 class="modal-title">{{ inviteForm.title }}</h4>
             </div>
             <div class="modal-body">
-                <p>{{ invite.body }}</p>
+                <p>{{ inviteForm.body }}</p>
             </div>
-            <div class="modal-footer" ng-if="invite.buttons.length > 0">
-                <button type="button" class="{{ button.classes }}" ng-repeat="button in invite.buttons" ng-click="this[button.action]()">{{ button.label }}</button>
+            <div class="modal-footer" ng-if="inviteForm.buttons.length > 0">
+                <button type="button" class="{{ button.classes }}" ng-repeat="button in inviteForm.buttons" ng-click="this[button.action]()">{{ button.label }}</button>
             </div>
         </div>
     </div>
