@@ -5,7 +5,9 @@
     // Created the socket services
     var srvcSocket = function () {
 
-        var socket = io();
+        var socket = io.connect('http://localhost/', {
+            transports: ['websocket']
+        });
 
         this.socket = function () {
             return socket;

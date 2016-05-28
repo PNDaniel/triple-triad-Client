@@ -3,7 +3,7 @@
     'use strict';
 
     // Created the controller to the game view
-    var CtrlGame = function ($scope, $routeParams, $window, srvcAuth, srvcGame, srvcSocket, cssInjector) {
+    var CtrlGame = function ($scope, $routeParams, $rootScope, $location, $window, srvcAuth, srvcGame, srvcSocket, cssInjector) {
 
         // Message log to check if game view was loaded (delete for deploy)
         console.log('Game controller loaded.');
@@ -19,6 +19,8 @@
 
         // Get socket object to listen to specific channels
         var socket = srvcSocket.socket();
+
+        var room = $routeParams.id;
 
         // Get the details of current user
         srvcAuth.whoami()
@@ -39,13 +41,13 @@
 
         // Enter game room
         socket.emit('game', {
-            game: $routeParams.id
+            game: room
         })
 
         // Send message to chat
         $scope.send = function (msg) {
             socket.emit('msg', {
-                room: $routeParams.id,
+                room: room,
                 msg: msg
             });
         };
@@ -56,15 +58,23 @@
             $scope.$apply();
         });
 
+        socket.on('disconnect', function (data) {
+            console.log('leave');
+            $rootScope.$apply(function () {
+                $location.path('/lobby');
+            });
+        });
+
         // Change status to offline when window close
         $window.onbeforeunload = function () {
+            console.log('LEAVE');
             srvcSocket.status('offline');
         };
 
     };
 
     // Injecting modules used for better minifing later on
-    CtrlGame.$inject = ['$scope', '$routeParams', '$window', 'srvcAuth', 'srvcGame', 'srvcSocket', 'cssInjector'];
+    CtrlGame.$inject = ['$scope', '$routeParams', '$rootScope', '$location', '$window', 'srvcAuth', 'srvcGame', 'srvcSocket', 'cssInjector'];
 
     // Enabling the controller in the app
     angular.module('triple-triad').controller('CtrlGame', CtrlGame);
