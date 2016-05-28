@@ -42,7 +42,7 @@
                 SLOT 8
             </div>
             <div id="slot9" class="col-xs-4 tt-cell">
-                SLOT9 
+                SLOT9
             </div>
         </div>
     </div>
@@ -56,5 +56,26 @@
             <img class="tt-card img-responsive" src="/img/card.png">
             <img class="tt-card img-responsive" src="/img/card.png">
         </div>
-    </div>   
+    </div>
+</div>
+<div class="tt-chat">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-brand">Chat</p>
+            </div>
+        </div>
+    </nav>
+    <div class="tt-chat-messages">
+        <h5 ng-repeat="message in messages" ng-class="{'own-msg': own(message)}">{{ message.msg }}</h5>
+    </div>
+    <nav class="navbar bottom navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-form">
+                <form class="form-inline medium-margin-left medium-margin-right inner-addon right-addon" ng-submit="send(msg); msg = '';">
+                    <input ng-model="msg" type="text" class="form-control input-chat" placeholder="Message">
+                </form>
+            </div>
+        </div>
+    </nav>
 </div>
