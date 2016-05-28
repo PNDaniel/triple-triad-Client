@@ -1,109 +1,84 @@
 /* Styles applied only in the game page */
-
-html, body{
+html,
+body {
     width: 100%;
     height: 100%;
-    
     background-color: #faebcc;
 }
-
-body > div{
+body > div {
     width: 100%;
     height: 100%;
 }
-
-.tt-container{
+.tt-container {
     width: 100%;
     height: 100%;
-    
     margin: 0px;
-    
     display: -webkit-flex;
     display: flex;
-    
     -webkit-justify-content: center;
     justify-content: center;
-    
     -webkit-align-items: center;
     align-items: center;
 }
-
-.tt-container .col-xs-6, .tt-container .col-xs-3{
+.tt-container .col-xs-6,
+.tt-container .col-xs-3 {
     margin: 0px;
     padding: 0px;
 }
-
-.tt-board{        
+.tt-board {
     border: 2px solid black;
-    
     display: block;
-    
     width: 80vmin;
     height: 80vmin;
-    
     background-image: url("/img/board.jpg");
     background-size: 100% 100%;
 }
-
-.tt-hand-p1, .tt-hand-p2{    
+.tt-hand-p1,
+.tt-hand-p2 {
     display: block;
     height: 100%;
 }
-
-.tt-row{
+.tt-row {
     height: 33.3%;
     margin: 0px;
 }
-
-.tt-cell{
+.tt-cell {
     display: block;
     height: 100%;
     padding: 5px;
     cursor: pointer;
     border-radius: 5px;
 }
-
-.tt-cell-player1{
+.tt-cell-player1 {
     box-shadow: 0px 0px 20px 10px cornflowerblue inset;
 }
-
-.tt-cell-player2{
+.tt-cell-player2 {
     box-shadow: 0px 0px 20px 10px mediumvioletred inset;
 }
-
-.tt-cell:hover{
+.tt-cell:hover {
     box-shadow: 0px 0px 20px 10px white inset;
     border: 1px black solid;
 }
-
-.tt-cards1, .tt-cards2{
+.tt-cards1,
+.tt-cards2 {
     display: block;
-    
     height: 90%;
-
     padding: 0px 25px;
-    
-    overflow: scroll;
-    
     text-align: center;
 }
-
-.tt-cell > .tt-card{
+.tt-cell > .tt-card {
     height: 100%;
 }
-
-.tt-cards1 > .tt-card, .tt-cards2 > .tt-card{
+.tt-cards1 > .tt-card,
+.tt-cards2 > .tt-card {
     margin-bottom: 10px;
 }
-
-.tt-card{ 
+.tt-card {
     margin-left: auto;
     margin-right: auto;
-    
     border-radius: 5px;
     cursor: pointer;
 }
-
-.tt-card:hover{
+.tt-card:hover {
     box-shadow: 0px 0px 2px blue;
 }

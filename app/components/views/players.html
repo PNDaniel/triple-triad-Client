@@ -10,8 +10,8 @@
         <div class="tt-players-list-item" ng-if="players.length == 0">
             All players are offline
         </div>
-        <div class="tt-players-list-item" ng-repeat="player in players">
-            <a ng-click="invite(player)">{{ player.name }}</a>
+        <div class="tt-players-list-item" ng-repeat="player in players | orderBy: -player.status">
+            <a ng-click="invite(player)">{{ player.name }}</a> - <cite>{{ player.status }}</cite>
         </div>
     </div>
 </div>
@@ -30,8 +30,5 @@
                 <button type="button" class="{{ button.classes }}" ng-repeat="button in invite.buttons" ng-click="this[button.action]()">{{ button.label }}</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->

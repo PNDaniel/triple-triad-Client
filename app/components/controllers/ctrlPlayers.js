@@ -54,10 +54,22 @@
                     classes: 'btn btn-primary',
                     action: 'accept'
                 }, {
-                        label: 'Deny',
+                        label: 'Decline',
                         classes: 'btn btn-danger',
-                        action: ''
+                        action: 'decline'
                     }]
+            };
+            $scope.$apply();
+        });
+
+        // Decline an invite
+        socket.on('decline', function (data) {
+            $scope.invite = {
+                show: false,
+                user: null,
+                title: '',
+                body: '',
+                buttons: []
             };
             $scope.$apply();
         });
@@ -78,6 +90,13 @@
         // Accept invite from a player
         $scope.accept = function () {
             socket.emit('accept', {
+                id: $scope.invite.user._id
+            });
+        };
+
+        // Decline invite from a player
+        $scope.decline = function () {
+            socket.emit('decline', {
                 id: $scope.invite.user._id
             });
         };
