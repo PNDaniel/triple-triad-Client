@@ -39,12 +39,23 @@
             }
         }
 
+        $scope.iWasInvited = false;
+
         // Enter game room
         socket.emit('game', {
-            game: room
+            game: $routeParams.id
         });
 
-        $scope.iWasInvited = false;
+        $scope.game = undefined;
+
+        var tid = setTimeout(getGame, 500);
+        function getGame() {
+            socket.emit('getGame', {
+                game: $routeParams.id
+            });
+            //console.log('repeat ' + $routeParams.id);
+            tid = setTimeout(getGame, 500);
+        };
 
         // Receive game update
         socket.on('game', function (data) {
@@ -66,6 +77,7 @@
             } else {
                 $scope.tip = 'It\'s the other player time.';
             }
+            clearTimeout(tid);
             $scope.$apply();
         });
 
@@ -103,6 +115,26 @@
             } else {
                 selected = null;
                 $scope.tip = 'It\'s the other player time. Be patient.';
+            }
+        };
+
+        $scope.player1Card = function (id) {
+            if ($scope.game !== undefined && $scope.game.board !== undefined && $scope.game.board[id] !== undefined) {
+                if ($scope.iWasInvited === false && $scope.game.board[id].creator === true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        };
+
+        $scope.player2Card = function (id) {
+            if ($scope.game !== undefined && $scope.game.board !== undefined && $scope.game.board[id] !== undefined) {
+                if ($scope.iWasInvited === true && $scope.game.board[id].invited === true) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         };
 
