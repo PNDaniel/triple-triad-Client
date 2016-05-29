@@ -81,6 +81,14 @@
             $scope.$apply();
         });
 
+        $scope.winner = false;
+
+        socket.on('endGame', function (data) {
+            $scope.win_msg = JSON.stringify(data.winner.name) + ' has won the game.';
+            $scope.winner = true;
+            $scope.$apply();
+        });
+
         var selected = {};
 
         $scope.selectCard = function (card) {

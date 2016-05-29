@@ -57,7 +57,14 @@
             </div>
         </div>
         <div class="text-center">
-            {{ tip }}
+            <div ng-if="!winner">
+                {{ tip }}
+            </div>
+            <div ng-if="winner">
+                {{ win_msg }}
+                <br>
+                <a href="/lobby">Click here to go back to lobby</a>
+            </div>
         </div>
     </div>
     <!-- Player 2 hand -->
