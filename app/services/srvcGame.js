@@ -16,7 +16,14 @@
         };
 
         this.games_ongoing = function () {
-            return $http.get('api/games')
+            return $http.get('/api/games')
+                .success(function (res) {
+                    deferred.resolve(res);
+                });
+        };
+
+        this.ranking = function () {
+            return $http.get('/api/users')
                 .success(function (res) {
                     deferred.resolve(res);
                 });

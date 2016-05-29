@@ -17,6 +17,12 @@
         // Clear hash created by Facebook stupid thingy
         srvcStatus.clearHash();
 
+        srvcGame.ranking()
+            .then(function (res) {
+                console.log(res.data);
+                $scope.ranking = res.data;
+            });
+
         srvcGame.games_ongoing()
             .then(function (res) {
                 $scope.games = res.games;
