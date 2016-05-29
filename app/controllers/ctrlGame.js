@@ -66,8 +66,6 @@
             } else {
                 $scope.tip = 'It\'s the other player time.';
             }
-            console.log('Received:');
-            console.log($scope.game.board);
             $scope.$apply();
         });
 
@@ -91,14 +89,11 @@
         };
 
         $scope.selectSlot = function (id) {
-            console.log($scope.game.board);
             if (($scope.game.creator_playing === true && $scope.iWasInvited == false) ||
                 ($scope.game.creator_playing === false && $scope.iWasInvited == true)) {
                 if ($scope.game.board[id] === undefined || $scope.game.board[id].id === undefined) {
                     $scope.game.board[id] = selected;
                     // Send updated board
-                    console.log('Sent:');
-                    console.log($scope.game.board);
                     socket.emit('board', {
                         game: $scope.game
                     });

@@ -3,7 +3,7 @@
     'use strict';
 
     // Created the controller to the lobby view
-    var CtrlLobby = function ($scope, $cookies, cssInjector, srvcAuth, srvcStatus, srvcSocket) {
+    var CtrlLobby = function ($scope, $cookies, cssInjector, srvcAuth, srvcStatus, srvcSocket, srvcGame) {
 
         // Message log to check if lobby view was loaded (delete for deploy)
         console.log('Lobby controller loaded.');
@@ -16,6 +16,11 @@
 
         // Clear hash created by Facebook stupid thingy
         srvcStatus.clearHash();
+
+        srvcGame.games_ongoing()
+            .then(function (res) {
+                $scope.games = res.games;
+            });
 
         // Get the details of current user
         srvcAuth.whoami()
@@ -46,7 +51,7 @@
     };
 
     // Injecting modules used for better minifing later on
-    CtrlLobby.$inject = ['$scope', '$cookies', 'cssInjector', 'srvcAuth', 'srvcStatus', 'srvcSocket'];
+    CtrlLobby.$inject = ['$scope', '$cookies', 'cssInjector', 'srvcAuth', 'srvcStatus', 'srvcSocket', 'srvcGame'];
 
     // Enabling the controller in the app
     angular.module('triple-triad').controller('CtrlLobby', CtrlLobby);

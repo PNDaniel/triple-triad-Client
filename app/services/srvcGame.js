@@ -15,6 +15,13 @@
                 });
         };
 
+        this.games_ongoing = function () {
+            return $http.get('api/games')
+                .success(function (res) {
+                    deferred.resolve(res);
+                });
+        };
+
     };
 
     // Injecting modules used for better minifing later on
