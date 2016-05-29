@@ -49,13 +49,67 @@
         // Receive game update
         socket.on('game', function (data) {
             $scope.game = data.game;
+            for (var i = 0; i < $scope.game.cards.invited.lentgh; i++) {
+                $scope.game.cards.invited[i].selected = false;
+            }
+            for (var i = 0; i < $scope.game.cards.creator.lentgh; i++) {
+                $scope.game.cards.creator[i].selected = false;
+            }
             if ($scope.user._id === $scope.game.invited) {
                 $scope.iWasInvited = true;
             } else {
                 $scope.iWasInvited = false;
             }
+            if (($scope.game.creator_playing === true && $scope.iWasInvited == false) ||
+                ($scope.game.creator_playing === false && $scope.iWasInvited == true)) {
+                $scope.tip = 'Select a card.';
+            } else {
+                $scope.tip = 'It\'s the other player time.';
+            }
+            console.log('Received:');
+            console.log($scope.game.board);
             $scope.$apply();
         });
+
+        var selected = {};
+
+        $scope.selectCard = function (card) {
+            if (($scope.game.creator_playing === true && $scope.iWasInvited == false) ||
+                ($scope.game.creator_playing === false && $scope.iWasInvited == true)) {
+                if (selected === null) {
+                    selected = card;
+                } else {
+                    selected.selected = false;
+                }
+                card.selected = true;
+                selected = card;
+                $scope.tip = 'Select a empty slot on the board.';
+            } else {
+                selected = null;
+                $scope.tip = 'It\'s the other player time. Be patient.';
+            }
+        };
+
+        $scope.selectSlot = function (id) {
+            console.log($scope.game.board);
+            if (($scope.game.creator_playing === true && $scope.iWasInvited == false) ||
+                ($scope.game.creator_playing === false && $scope.iWasInvited == true)) {
+                if ($scope.game.board[id] === undefined || $scope.game.board[id].id === undefined) {
+                    $scope.game.board[id] = selected;
+                    // Send updated board
+                    console.log('Sent:');
+                    console.log($scope.game.board);
+                    socket.emit('board', {
+                        game: $scope.game
+                    });
+                } else {
+                    $scope.tip = 'Slot not empty. Try again.';
+                }
+            } else {
+                selected = null;
+                $scope.tip = 'It\'s the other player time. Be patient.';
+            }
+        };
 
         // Send message to chat
         $scope.send = function (msg) {
