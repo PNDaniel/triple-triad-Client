@@ -1,23 +1,24 @@
 <!-- Code of the game page goes here -->
 <div class="tt-container text-center row">
     <div class="col-xs-3 tt-hand-p1">
-        <h4>Player 1 Hand</h4>
-        <div class="tt-cards1">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
+        <h4>Player 1 Hand</h4> {{ iWasInvited }}
+        <div class="tt-cards1" ng-if="iWasInvited == true">
+            <img ng-repeat="card in game.cards.invited" class="tt-card img-responsive" ng-src="/img/cards/{{ card.id }}.png">
+        </div>
+        <div class="tt-cards1" ng-if="iWasInvited == false">
+            <img ng-repeat="card in game.cards.creator" class="tt-card img-responsive" ng-src="/img/cards/{{ card.id }}.png">
         </div>
     </div>
 
     <div class="tt-board col-xs-6">
         <div class="row tt-row">
-            <div id="slot1" class="col-xs-4 tt-cell tt-cell-player1">
+            <div id="slot1" class="col-xs-4 tt-cell">
+                <!-- tt-cell-player1 -->
                 SLOT 1
             </div>
-            <div id="slot2" class="col-xs-4 tt-cell tt-cell-player2">
-                <img class="tt-card img-responsive" src="/img/card.png">
+            <div id="slot2" class="col-xs-4 tt-cell">
+                <!-- tt-cell-player2 -->
+                <img class="tt-card img-responsive" src="/img/cards/0.png">
             </div>
             <div id="slot3" class="col-xs-4 tt-cell">
                 SLOT 3
@@ -48,13 +49,12 @@
     </div>
 
     <div class="col-xs-3 tt-hand-p2">
-        <h4>Player 2 Hand</h4>
-        <div class="tt-cards2">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
-            <img class="tt-card img-responsive" src="/img/card.png">
+        <h4>Player 2 Hand</h4> {{ iWasInvited }}
+        <div class="tt-cards2" ng-if="iWasInvited == true">
+            <img ng-repeat="card in game.cards.creator" class="tt-card img-responsive" ng-src="/img/cards/{{ card.id }}.png">
+        </div>
+        <div class="tt-cards2" ng-if="iWasInvited == false">
+            <img ng-repeat="card in game.cards.invited" class="tt-card img-responsive" ng-src="/img/cards/{{ card.id }}.png">
         </div>
     </div>
 </div>

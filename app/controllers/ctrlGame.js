@@ -42,7 +42,20 @@
         // Enter game room
         socket.emit('game', {
             game: room
-        })
+        });
+
+        $scope.iWasInvited = false;
+
+        // Receive game update
+        socket.on('game', function (data) {
+            $scope.game = data.game;
+            if ($scope.user._id === $scope.game.invited) {
+                $scope.iWasInvited = true;
+            } else {
+                $scope.iWasInvited = false;
+            }
+            $scope.$apply();
+        });
 
         // Send message to chat
         $scope.send = function (msg) {
@@ -59,7 +72,6 @@
         });
 
         socket.on('disconnect', function (data) {
-            console.log('leave');
             $rootScope.$apply(function () {
                 $location.path('/lobby');
             });
@@ -67,7 +79,6 @@
 
         // Change status to offline when window close
         $window.onbeforeunload = function () {
-            console.log('LEAVE');
             srvcSocket.status('offline');
         };
 
