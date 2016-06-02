@@ -23,6 +23,8 @@
         $scope.login = function (user) {
             srvcAuth.login(user);
         };
+        
+        $scope.register_error = '';
 
         $scope.register = function (user) {
             srvcAuth.register(user)
@@ -31,6 +33,7 @@
                 })
                 .catch(function (err) {
                     console.log(err);
+                    $scope.register_error = err.message;
                 })
         };
 
@@ -39,11 +42,11 @@
 
 
         // Interface Handlers
-        $scope.switchForm = function(form1, form2){
-            $(form2).slideToggle(400, function(){
+        $scope.switchForm = function (form1, form2) {
+            $(form2).slideToggle(400, function () {
                 $(form1).slideToggle(400);
-            });            
-        } 
+            });
+        }
     };
 
     // Injecting modules used for better minifing later on
