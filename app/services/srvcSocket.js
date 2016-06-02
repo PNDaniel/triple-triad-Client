@@ -4,8 +4,7 @@
 
     // Created the socket services
     var srvcSocket = function () {
-
-        var socket = io.connect('http://localhost/', {
+        var socket = io.connect('http://triple-triad.ivolimasilva.xyz/', {
             transports: ['websocket']
         });
 
