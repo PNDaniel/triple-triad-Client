@@ -33,7 +33,7 @@
                 })
                 .catch(function (err) {
                     console.log(err);
-                    $scope.register_error = err.message;
+                    $scope.register_error = err.data.message;
                 })
         };
 
